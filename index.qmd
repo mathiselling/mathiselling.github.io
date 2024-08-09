@@ -90,9 +90,9 @@ df02 %>%
 
 df02 %>% 
   filter(Type == "Teaching") %>% 
-  select(-c(Type, Year, Authors)) %>% 
+  select(-c(Type, Year, Authors, Link)) %>% 
   rename(Study = Journal) %>% 
-  kable() %>% 
-  column_spec(3, link = TRUE)
+  mutate(University = "Maastricht University") %>% 
+  kable()
 ```
 
