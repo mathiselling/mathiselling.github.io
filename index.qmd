@@ -1,0 +1,98 @@
+---
+echo: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(readxl)
+library(knitr)
+library(kableExtra)
+```
+
+```{r}
+#| include: false
+
+df01 <- read_excel("cv.xlsx")
+
+df02 <- df01 %>% 
+  mutate(
+    Link = paste0('<a href="', Link, '" target="_blank">', "Link", '</a>'),
+    Authors = str_replace(Authors, "Elling JM", "<strong>Elling JM</strong>")
+  )
+```
+
+# Publications
+
+```{r}
+
+df02 %>% 
+  filter(Type == "Reviewed") %>%
+  select(-Type) %>% 
+  arrange(desc(Year)) %>% 
+  kable(escape = FALSE, format = "html")
+```
+
+# Scientific Reports (in German)
+
+```{r}
+
+df02 %>% 
+  filter(Type == "Report") %>% 
+  select(-c(Type, Journal, Authors)) %>%
+  arrange(desc(Year)) %>%
+  kable() %>% 
+  column_spec(3, link = TRUE)
+```
+
+# Software
+
+```{r}
+
+df02 %>% 
+  filter(Type == "Software") %>% 
+  select(-c(Type, Journal, Authors)) %>%
+  arrange(desc(Year)) %>%
+  kable() %>% 
+  column_spec(3, link = TRUE)
+```
+
+# Conferences
+
+```{r}
+
+df02 %>% 
+  filter(Type == "Presentation") %>% 
+  select(-c(Type, Journal, Authors)) %>% 
+  arrange(desc(Year)) %>%
+  kable() %>% 
+  column_spec(3, link = TRUE)
+```
+
+# In the Media
+
+```{r}
+
+df02 %>% 
+  filter(Type == "Print") %>% 
+  select(-c(Type, Authors)) %>% 
+  arrange(desc(Year)) %>%
+  kable() %>% 
+  column_spec(4, link = TRUE)
+```
+
+# Teaching (Tutor)
+
+```{r}
+
+df02 %>% 
+  filter(Type == "Teaching") %>% 
+  select(-c(Type, Year, Authors)) %>% 
+  rename(Study = Journal) %>% 
+  kable() %>% 
+  column_spec(3, link = TRUE)
+```
+
