@@ -16,7 +16,7 @@ library(kableExtra)
 ```{r}
 #| include: false
 
-df01 <- read_excel("cv.xlsx")
+df01 <- read_delim("cv.csv", delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 df02 <- df01 %>% 
   mutate(
