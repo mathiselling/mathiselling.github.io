@@ -25,7 +25,7 @@ df02 <- df01 %>%
   )
 ```
 
-# Publications
+# Publications (n = `r df02 %>% filter(Type == "Reviewed") %>% nrow()`)
 
 ```{r}
 
