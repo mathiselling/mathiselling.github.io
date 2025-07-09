@@ -21,7 +21,7 @@ df01 <- read_delim("cv.csv", delim = ";", escape_double = FALSE, trim_ws = TRUE)
 df02 <- df01 %>% 
   mutate(
     Link = paste0('<a href="', Link, '" target="_blank">', "Link", '</a>'),
-    Authors = str_replace(Authors, "Elling JM", "<strong>Elling JM</strong>")
+    Authors = str_replace(Authors, "Elling", "<strong>Elling</strong>")
   )
 ```
 
