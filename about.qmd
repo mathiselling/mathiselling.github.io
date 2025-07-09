@@ -5,6 +5,4 @@ editor_options:
   chunk_output_type: console
 ---
 
-Hello! I am Mathis Elling, a researcher at the Institute for Quality Assurance in Prevention and Rehabilitation at the German Sport University Cologne ([iqpr](https://iqpr.de/)). I am trained at University of Twente (BSc) and Maastricht University (MSc, PhD). My research revolves around health psychology, with a focus on behavior change in the context of prevention and rehabilitation. I am interested in data science using R and Python.
-
-![](image.jpeg){width=200}
+Hello! I am Mathis Elling, a researcher at the Institute for Quality Assurance in Prevention and Rehabilitation at the German Sport University Cologne (iqpr). I am trained at University of Twente (BSc) and Maastricht University (MSc, PhD). My research revolves around health psychology, with a focus on behavior change in the context of prevention and rehabilitation. I am interested in data science using R and Python.
