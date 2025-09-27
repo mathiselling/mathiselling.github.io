@@ -25,7 +25,18 @@ df02 <- df01 %>%
   )
 ```
 
-# Publications (n = `r df02 %>% filter(Type == "Reviewed") %>% nrow()`)
+# Preprints
+
+```{r}
+
+df02 %>% 
+  filter(Type == "Preprint") %>%
+  select(-Type) %>% 
+  arrange(desc(Year)) %>% 
+  kable(escape = FALSE, format = "html")
+```
+
+# Publications
 
 ```{r}
 
@@ -34,18 +45,6 @@ df02 %>%
   select(-Type) %>% 
   arrange(desc(Year)) %>% 
   kable(escape = FALSE, format = "html")
-```
-
-# Scientific Reports (in German)
-
-```{r}
-
-df02 %>% 
-  filter(Type == "Report") %>% 
-  select(-c(Type, Journal, Authors)) %>%
-  arrange(desc(Year)) %>%
-  kable() %>% 
-  column_spec(3, link = TRUE)
 ```
 
 # Software
@@ -83,16 +82,3 @@ df02 %>%
   kable() %>% 
   column_spec(4, link = TRUE)
 ```
-
-# Teaching (Tutor)
-
-```{r}
-
-df02 %>% 
-  filter(Type == "Teaching") %>% 
-  select(-c(Type, Year, Authors, Link)) %>% 
-  rename(Study = Journal) %>% 
-  mutate(University = "Maastricht University") %>% 
-  kable()
-```
-
