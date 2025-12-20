@@ -36,7 +36,7 @@ df02 %>%
   kable(escape = FALSE, format = "html")
 ```
 
-# Publications
+# Publications (`r df02 %>% filter(Type == "Reviewed") %>% nrow()`)
 
 ```{r}
 
